@@ -1,0 +1,3 @@
+[submodule "src/mdk"]
+	path = src/mdk
+	url = https://git.innokassa.ru/Byurrer/mdk.git

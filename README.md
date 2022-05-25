@@ -1,12 +1,3 @@
-=== Innokassa-checkout  ===
-Contributors: Innokassa
-Tags: woocommerce, payment, gateway, Innokassa
-Requires at least: 4.7
-Tested up to: 5.7
-Stable tag: 1.3.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 # Облачная касса Innokassa для WooCommerce
 
 Сервис Innokassa предоставляет в аренду облачные-кассы для Вашего бизнеса на различных платформах в соответствии требованиям ФЗ-54.

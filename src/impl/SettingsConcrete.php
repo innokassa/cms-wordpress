@@ -1,4 +1,6 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
 
 use Innokassa\MDK\Settings\SettingsAbstract;
 
@@ -9,9 +11,8 @@ require_once plugin_dir_path(__FILE__) . '../include.php';
  */
 class SettingsConcrete extends SettingsAbstract
 {
-   
     public function __construct()
-    {        
+    {
     }
 
     /**
@@ -111,5 +112,4 @@ class SettingsConcrete extends SettingsAbstract
     {
         return get_option($name);
     }
-
 }

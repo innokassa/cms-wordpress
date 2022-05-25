@@ -7,4 +7,3 @@
  * @package    Innokassa
  * @subpackage Innokassa/public/partials
  */
-?>

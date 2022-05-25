@@ -1,4 +1,6 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
 
 use Innokassa\MDK\Entities\ReceiptId\ReceiptIdFactoryMeta;
 

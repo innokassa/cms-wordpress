@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+
 /**
  * @link       https://innokassa.ru/
  * @since      1.0.0
@@ -13,13 +15,12 @@
  * @package    Innokassa
  * @subpackage Innokassa/includes
  */
-class Innokassa_Activator
+class InnokassaActivator
 {
-
-	/**
-	 * @since    1.0.0
-	 */
-	public static function activate()
-	{
-	}
+    /**
+     * @since    1.0.0
+     */
+    public static function activate()
+    {
+    }
 }

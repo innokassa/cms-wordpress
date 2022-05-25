@@ -1,4 +1,6 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
 
 use Innokassa\MDK\Entities\Receipt;
 use Innokassa\MDK\Storage\ReceiptFilter;
@@ -33,7 +35,7 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
         $a = static::escapeArr($a);
 
         if ($receipt->getId() != 0) {
-            $this->db->update( $this->table, $a, array( 'id' => $receipt->getId() ));
+            $this->db->update($this->table, $a, array('id' => $receipt->getId()));
             return $receipt->getId();
         }
 
@@ -50,10 +52,8 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
      */
     public function getOne(int $id): ?Receipt
     {
-        
-        $res = $this->db->get_results( "SELECT * FROM `" . $this->table . "` WHERE `id` = " . $id, ARRAY_A );
+        $res = $this->db->get_results("SELECT * FROM `" . $this->table . "` WHERE `id` = " . $id, ARRAY_A);
         return $this->converter->receiptFromArray($res);
-        
     }
 
     /**
@@ -86,13 +86,14 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
 
 
         $res = $this->db->get_results(
-            "SELECT * FROM `" . $this->table . "` WHERE " . $where . " ORDER BY `id` ASC " . ($limit > 0 ? "LIMIT $limit" : ''), ARRAY_A
+            "SELECT * FROM `" . $this->table . "`
+            WHERE " . $where . " ORDER BY `id` ASC " . ($limit > 0 ? "LIMIT $limit" : ''),
+            ARRAY_A
         );
 
-        
         $receipts = new ReceiptCollection();
-        
-        foreach ($res as $r){
+
+        foreach ($res as $r) {
             $r['items'] = json_decode($r['items'], true);
             $r['amount'] = json_decode($r['amount'], true);
             $r['customer'] = json_decode($r['customer'], true);
@@ -101,7 +102,7 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
             $receipt = $this->converter->receiptFromArray($r);
             $receipts[] = $receipt;
         }
-    
+
         return $receipts;
     }
 

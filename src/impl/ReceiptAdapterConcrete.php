@@ -1,4 +1,6 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
 
 use Innokassa\MDK\Entities\Atoms\Vat;
 use Innokassa\MDK\Entities\Atoms\Unit;
@@ -48,16 +50,12 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
         }
 
         $order = wc_get_order($orderId);
-        // $order = $this->getOrder($orderId);
 
-        
         $order_items = $order->get_items();
-        // $basketItems = $order->getBasket()->getBasketItems();
-        
+
         $items = new ReceiptItemCollection();
 
         foreach ($order_items as $order_item) {
-
             $item = (new ReceiptItem())
                 ->setItemId($order_item['product_id'])
                 ->setName($order_item['name'])
@@ -69,7 +67,7 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
                     ? ReceiptItemType::PAYMENT
                     : $this->settings->getTypeDefaultItems($siteId)
                 )
-                ->setUnit(Unit::DEFAULT)                
+                ->setUnit(Unit::DEFAULT)
                 ->setVat(
                     $this->getVatProduct(
                         $order_item['product_id'],
@@ -77,7 +75,7 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
                         $subType,
                         $siteId
                     )
-                ); 
+                );
 
             $items[] = $item;
         }
@@ -139,7 +137,7 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
             $customer->setName($data['billing']['first_name']);
             return $customer;
         }
-        
+
         return $customer;
     }
 
@@ -182,7 +180,7 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
      */
     private function getVatProduct(int $subType, string $siteId): Vat
     {
-        $vat = (new Vat($this->settings->getVatDefaultItems($siteId))); 
+        $vat = (new Vat($this->settings->getVatDefaultItems($siteId)));
 
         if (
             !($vat->getCode() == Vat::CODE_WITHOUT || $vat->getCode() == Vat::CODE_0)

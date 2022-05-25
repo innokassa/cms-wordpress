@@ -1,5 +1,6 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
 
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
 use Innokassa\MDK\Client;
 use Innokassa\MDK\Net\Transfer;
 use Innokassa\MDK\Net\ConverterApi;

@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+
 /**
  * @link       https://innokassa.ru/
  * @since      1.0.0
@@ -13,20 +15,17 @@
  * @package    Innokassa
  * @subpackage Innokassa/includes
  */
-class Innokassa_i18n
+class InnokassaI18n
 {
-
-
-	/**
-	 * @since    1.0.0
-	 */
-	public function load_plugin_textdomain()
-	{
-
-		load_plugin_textdomain(
-			'Innokassa',
-			false,
-			dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
-		);
-	}
+    /**
+     * @since    1.0.0
+     */
+    public function loadPluginTextdomain()
+    {
+        loadPluginTextdomain(
+            'Innokassa',
+            false,
+            dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
+        );
+    }
 }

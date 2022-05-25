@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen container",
+            "type": "php",
+            "request": "launch",
+            "hostname": "172.18.6.1",
+            "port": 9003,
+            "log": true,
+            "pathMappings": {
+                "/var/www/html/wp-content/plugins/checkout-wordpress/": "${workspaceFolder}/src/"
+            },
+            "xdebugSettings": {
+                "max_children": 9999,
+                "show_hidden": 1
+            }
+        }
+    ]
+}

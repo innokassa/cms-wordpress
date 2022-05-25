@@ -1,0 +1,75 @@
+version: '3.0'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    container_name: wordpress-mysql-dev
+    restart: unless-stopped
+    volumes:
+      - ./docker-data/mysql/data:/var/lib/mysql
+      - ./.docker/mysql/init.sql:/usr/bin/init.sql
+      - ./.docker/mysql/entrypoint.sh:/usr/bin/entrypoint.sh
+    command: /bin/bash -c "/usr/bin/entrypoint.sh"
+    networks:
+      - app-network
+
+  php:
+    build:
+      context: ./.docker/php
+      args:
+        uid: 1000
+        user: runner
+    container_name: wordpress-php-dev
+    restart: unless-stopped
+    depends_on: 
+      - mysql
+    volumes:
+      - ./wordpress/:/var/www/html/
+      - ./.docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./.docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./src/:/var/www/html/wp-content/plugins/checkout-wordpress/
+    networks:
+      - app-network
+
+  webserver:
+    build:
+      context: ./.docker/webserver
+    container_name: wordpress-webserver-dev
+    restart: unless-stopped
+    depends_on: 
+      - php
+    ports:
+      - "5001:80"
+    volumes:
+      - ./logs/:/var/www/html/logs/
+      - ./wordpress/:/var/www/html/
+      - ./.docker/webserver/host.conf:/etc/apache2/sites-available/000-default.conf
+      - ./.docker/webserver/apache2.conf:/etc/apache2/apache2.conf
+      - ./.docker/webserver/entrypoint.sh:/usr/bin/entrypoint.sh
+    command: /bin/bash -c "/usr/bin/entrypoint.sh"
+    networks:
+      - app-network
+
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: wordpress-pma-dev
+    restart: unless-stopped
+    depends_on: 
+      - mysql
+    ports:
+      - "5002:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.6.1/24

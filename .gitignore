@@ -1,0 +1,7 @@
+/vendor
+/docker-data
+/logs
+/composer.lock
+/wordpress
+/src/mdk
+/ads.txt

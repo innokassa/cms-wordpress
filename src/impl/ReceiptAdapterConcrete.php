@@ -59,8 +59,8 @@ class ReceiptAdapterConcrete implements ReceiptAdapterInterface
             $item = (new ReceiptItem())
                 ->setItemId($order_item['product_id'])
                 ->setName($order_item['name'])
-                ->setPrice($order_item['total'])
-                ->setQuantity($order_item["quantity"])
+                ->setPrice($order_item['total'] / $order_item['quantity'])
+                ->setQuantity($order_item['quantity'])
                 ->setPaymentMethod($paymentMethod)
                 ->setType(
                     $subType == ReceiptSubType::PRE

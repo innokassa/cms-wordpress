@@ -17,5 +17,4 @@
  */
 class InnokassaI18n
 {
-    
 }

@@ -17,15 +17,5 @@
  */
 class InnokassaI18n
 {
-    /**
-     * @since    1.0.0
-     */
-    public function loadPluginTextdomain()
-    {
-        loadPluginTextdomain(
-            'Innokassa',
-            false,
-            dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
-        );
-    }
+    
 }

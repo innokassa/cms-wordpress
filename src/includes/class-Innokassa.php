@@ -51,7 +51,6 @@ class Innokassa
         $this->Innokassa = 'Innokassa';
 
         $this->loadDependencies();
-        $this->setLocale();
         $this->defineAdminHooks();
         $this->definePublicHooks();
     }
@@ -64,24 +63,11 @@ class Innokassa
     {
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-Innokassa-loader.php';
 
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-Innokassa-i18n.php';
-
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-Innokassa-admin.php';
 
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-Innokassa-public.php';
 
         $this->loader = new Innokassa_Loader();
-    }
-
-    /**
-     * @since    1.0.0
-     * @access   private
-     */
-    private function setLocale()
-    {
-        $plugin_i18n = new InnokassaI18n();
-
-        $this->loader->add_action('plugins_loaded', $plugin_i18n, 'loadPluginTextdomain');
     }
 
     /**

@@ -77,6 +77,8 @@ function Innokassa_create_database_tables()
     $sql .= " `type` TINYINT NOT NULL, ";
     $sql .= " `items` TEXT NOT NULL, ";
     $sql .= " `taxation` TINYINT NOT NULL, ";
+    $sql .= " `accepted` TINYINT NOT NULL, ";
+    $sql .= " `available` TINYINT NOT NULL, ";
     $sql .= " `amount` TEXT NOT NULL, ";
     $sql .= " `customer` TEXT NOT NULL, ";
     $sql .= " `notify` TEXT NOT NULL, ";
@@ -206,6 +208,7 @@ function do_this_hourly()
     $mdk = ClientFactory::build();
     $pipeline = $mdk->servicePipeline();
     $pipeline->update();
+    $pipeline->monitoring($_SERVER['DOCUMENT_ROOT'] . '/innokassa.monitoring', 'start_time');
 }
 
 register_deactivation_hook(__FILE__, 'my_deactivation');

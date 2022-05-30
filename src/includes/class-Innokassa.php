@@ -78,9 +78,6 @@ class Innokassa
     {
         $plugin_admin = new InnokassaAdmin($this->getInnokassa(), $this->getVersion());
 
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-
         $this->loader->add_action('admin_menu', $plugin_admin, 'addMenu');
         $this->loader->add_action('admin_init', $plugin_admin, 'registerSettings');
         $this->loader->add_action('woocommerce_payment_complete', 'custom_process_order', 10, 1);
@@ -93,9 +90,6 @@ class Innokassa
     private function definePublicHooks()
     {
         $plugin_public = new InnokassaPublic($this->getInnokassa(), $this->getVersion());
-
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
     }
 
     /**

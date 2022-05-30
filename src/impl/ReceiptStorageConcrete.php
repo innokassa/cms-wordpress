@@ -90,7 +90,7 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
     public function min(ReceiptFilter $filter, string $column)
     {
         $where = $this->where($filter);
-        $result = $this->db->get_results("SELECT MIN($column) FROM `" . $this->table . "` WHERE " . $where, ARRAY_A);
+        $result = $this->db->get_results("SELECT MIN(`" . $column . "`) FROM `" . $this->table . "` WHERE " . $where, ARRAY_A);
         return current($result);
     }
 
@@ -100,7 +100,7 @@ class ReceiptStorageConcrete implements ReceiptStorageInterface
     public function max(ReceiptFilter $filter, string $column)
     {
         $where = $this->where($filter);
-        $result = $this->db->get_results("SELECT MAX($column) FROM `" . $this->table . "` WHERE " . $where, ARRAY_A);
+        $result = $this->db->get_results("SELECT MAX(`" . $column . "`) FROM `" . $this->table . "` WHERE " . $where, ARRAY_A);
         return current($result);
     }
 

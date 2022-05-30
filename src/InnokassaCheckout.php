@@ -25,9 +25,8 @@ require_once plugin_dir_path(__FILE__) . 'include.php';
  *
  * @wordpress-plugin
  * Plugin Name:       Innokassa
- * Description:       Innokassa - Сервис для фискализации интернет-продаж и автоматизации работы с Честным Знаком,
- *  с доступными интеграциями всех интернет площадок.
- * Version:           1.3.3
+ * Description:       Innokassa - Сервис для фискализации интернет-продаж и автоматизации работы с Честным Знаком, с доступными интеграциями всех интернет площадок.
+ * Version:           1
  * Author:            Kripak Igor @ Innokassa
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -207,7 +206,7 @@ function do_this_hourly()
 {
     $mdk = ClientFactory::build();
     $pipeline = $mdk->servicePipeline();
-    $pipeline->update();
+    $pipeline->update($_SERVER['DOCUMENT_ROOT'] . '/innokassa.update');
     $pipeline->monitoring($_SERVER['DOCUMENT_ROOT'] . '/innokassa.monitoring', 'start_time');
 }
 

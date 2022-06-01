@@ -1,3 +1,14 @@
+=== Plugin Name ===
+Contributors: Kripak Igor https://github.com/kripak-igor
+Tags: облачная касса, фискализация, электронный чек
+Requires PHP: 5.3 или выше 
+Requires at least: 4.8 или выше
+Tested up to: 6.0
+Stable tag: 1
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+== Description ==
 # Облачная касса Innokassa для WooCommerce
 
 Сервис Innokassa предоставляет в аренду облачные-кассы для Вашего бизнеса на различных платформах в соответствии требованиям ФЗ-54.

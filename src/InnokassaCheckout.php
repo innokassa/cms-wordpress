@@ -19,20 +19,20 @@ require_once plugin_dir_path(__FILE__) . 'include.php';
  * Innokassa
  *
  * @link              https://innokassa.ru/
- * @since             1.3.3
+ * @since             1.0
  * @package           Innokassa
  * @copyright         @ Innokassa
  *
  * @wordpress-plugin
  * Plugin Name:       Innokassa
  * Description:       Innokassa - Сервис для фискализации интернет-продаж и автоматизации работы с Честным Знаком, с доступными интеграциями всех интернет площадок.
- * Version:           1
+ * Version:           1.0
  * Author:            Kripak Igor @ Innokassa
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       Innokassa
  * Domain Path:       /languages
- * Requires           PHP: 7.0
+ * Requires           PHP: 5.3
  */
 
 if (!defined('WPINC')) {

@@ -124,7 +124,7 @@ add_action('woocommerce_order_status_changed', 'orderStatusChanged', 10, 4);
 
 function orderStatusChanged(int $order_id, string $old_status, string $new_status, object $order)
 {
-    $mdk = ClientFactory::build();
+    $mdk = InnokassaClientFactory::build();
     $settings = $mdk->componentSettings();
     $automatic = $mdk->serviceAutomatic();
 
@@ -175,7 +175,7 @@ function true_custom_notice()
                 new LoggerFile()
             );
             $conn = new ConnectorBase($transfer);
-            $conn->testSettings(new SettingsConcrete(), '');
+            $conn->testSettings(new InnokassaSettingsConcrete(), '');
         } catch (SettingsException $e) {
             echo '<div class="notice notice-error is-dismissible"><p>' . $e->getMessage() . '!</p></div>';
             return;
@@ -204,7 +204,7 @@ function my_activation()
 add_action('innokassa_event', 'do_this_hourly');
 function do_this_hourly()
 {
-    $mdk = ClientFactory::build();
+    $mdk = InnokassaClientFactory::build();
     $pipeline = $mdk->servicePipeline();
     $pipeline->update($_SERVER['DOCUMENT_ROOT'] . '/innokassa.update');
     $pipeline->monitoring($_SERVER['DOCUMENT_ROOT'] . '/innokassa.monitoring', 'start_time');

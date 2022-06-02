@@ -21,7 +21,7 @@ require_once plugin_dir_path(__FILE__) . '../include.php';
 /**
  * Реализация адаптера чеков
  */
-class ReceiptAdapterConcrete implements ReceiptAdapterInterface
+class InnokassaReceiptAdapterConcrete implements ReceiptAdapterInterface
 {
     /**
      * @param SettingsAbstract $settings

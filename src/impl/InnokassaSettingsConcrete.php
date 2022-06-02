@@ -9,7 +9,7 @@ require_once plugin_dir_path(__FILE__) . '../include.php';
 /**
  * Реализация настроек из массива данных
  */
-class SettingsConcrete extends SettingsAbstract
+class InnokassaSettingsConcrete extends SettingsAbstract
 {
     public function __construct()
     {

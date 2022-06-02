@@ -167,16 +167,16 @@ $aVat = array(
             <div>
                 <label>Идентификатор актора</label>
                 <input name="innokassa_option_actor_id"
-                value="<?php echo get_option('innokassa_option_actor_id'); ?>" />
+                value="<?php esc_html_e(get_option('innokassa_option_actor_id'), 'text_domain'); ?>" />
             </div>
             <div>
                 <label>Токен актора</label>
                 <input name="innokassa_option_actor_token"
-                value="<?php echo get_option('innokassa_option_actor_token'); ?>" />
+                value="<?php esc_html_e(get_option('innokassa_option_actor_token'), 'text_domain'); ?>" />
             </div>
             <div>
                 <label>Группу касс</label>
-                <input name="innokassa_option_cashbox" value="<?php echo get_option('innokassa_option_cashbox'); ?>" />
+                <input name="innokassa_option_cashbox" value="<?php esc_html_e(get_option('innokassa_option_cashbox'), 'text_domain'); ?>" />
             </div>
         </div>
         <div class="flex_div">
@@ -187,11 +187,11 @@ $aVat = array(
                     foreach ($aSchemes as $key => $value) {
                         if ($key == get_option('innokassa_option_scheme')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -205,11 +205,11 @@ $aVat = array(
                     foreach ($aOrderStatuses as $key => $value) {
                         if ($key == get_option('innokassa_option_status_first_receipt')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -223,11 +223,11 @@ $aVat = array(
                     foreach ($aOrderStatuses as $key => $value) {
                         if ($key == get_option('innokassa_option_status_second_receipt')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -248,11 +248,11 @@ $aVat = array(
                     foreach ($аTaxation as $key => $value) {
                         if ($key == get_option('innokassa_option_taxation')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -266,11 +266,11 @@ $aVat = array(
                     foreach ($aTypeOfReceiptPosition as $key => $value) {
                         if ($key == get_option('innokassa_option_type_of_receipt_position')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -286,11 +286,11 @@ $aVat = array(
                     foreach ($aVat as $key => $value) {
                         if ($key == get_option('innokassa_option_vat')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }
@@ -304,11 +304,11 @@ $aVat = array(
                     foreach ($aVat as $key => $value) {
                         if ($key == get_option('innokassa_option_delivery_vat')) {
                             ?>
-                                <option selected value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option selected value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         } else {
                             ?>
-                                <option value="<?php echo $key?>"><?php echo $value ?></option>
+                                <option value="<?php esc_html_e($key, 'text_domain'); ?>"><?php esc_html_e($value, 'text_domain'); ?></option>
                             <?php
                         }
                     }

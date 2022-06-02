@@ -13,7 +13,7 @@ require_once plugin_dir_path(__FILE__) . '../include.php';
 /**
  * Реализация хранилища чеков
  */
-class ReceiptStorageConcrete implements ReceiptStorageInterface
+class InnokassaReceiptStorageConcrete implements ReceiptStorageInterface
 {
     /**
      * @param wpdb $db

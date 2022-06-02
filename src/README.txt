@@ -4,7 +4,7 @@ Tags: облачная касса, фискализация, электронн�
 Requires PHP: 5.3 или выше 
 Requires at least: 4.8 или выше
 Tested up to: 6.0
-Stable tag: 1
+Stable tag: 1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

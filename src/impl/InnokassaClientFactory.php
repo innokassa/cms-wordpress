@@ -16,18 +16,18 @@ require_once plugin_dir_path(__FILE__) . '../include.php';
 /**
  * Фабрика клиента MDK
  */
-class ClientFactory
+class InnokassaClientFactory
 {
     public static function build(): Client
     {
-        $receiptIdFactory = new ReceiptIdFactoryMetaConcrete();
+        $receiptIdFactory = new InnokassaReceiptIdFactoryMetaConcrete();
 
-        $settings = new SettingsConcrete();
-        $receiptStorage = new ReceiptStorageConcrete(
+        $settings = new InnokassaSettingsConcrete();
+        $receiptStorage = new InnokassaReceiptStorageConcrete(
             $GLOBALS['wpdb'],
             new ConverterStorage($receiptIdFactory)
         );
-        $receiptAdapter = new ReceiptAdapterConcrete($settings);
+        $receiptAdapter = new InnokassaReceiptAdapterConcrete($settings);
         $logger = new LoggerFile();
         $transfer = new Transfer(
             new NetClientCurl(),

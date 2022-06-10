@@ -177,7 +177,7 @@ function true_custom_notice()
             $conn = new ConnectorBase($transfer);
             $conn->testSettings(new InnokassaSettingsConcrete(), '');
         } catch (SettingsException $e) {
-            echo '<div class="notice notice-error is-dismissible"><p>' . $e->getMessage() . '!</p></div>';
+            echo '<div class="notice notice-error is-dismissible"><p>' . esc_attr($e->getMessage()) . '!</p></div>';
             return;
         }
         echo '<div class="notice notice-success is-dismissible"><p>Настройки сохранены!</p></div>';
@@ -204,10 +204,13 @@ function my_activation()
 add_action('innokassa_event', 'do_this_hourly');
 function do_this_hourly()
 {
+    if(($rootPath = realpath($_SERVER['DOCUMENT_ROOT'])) === false){
+        return;
+    }
     $mdk = InnokassaClientFactory::build();
     $pipeline = $mdk->servicePipeline();
-    $pipeline->update($_SERVER['DOCUMENT_ROOT'] . '/innokassa.update');
-    $pipeline->monitoring($_SERVER['DOCUMENT_ROOT'] . '/innokassa.monitoring', 'start_time');
+    $pipeline->update($rootPath . '/innokassa.update');
+    $pipeline->monitoring($rootPath . '/innokassa.monitoring', 'start_time');
 }
 
 register_deactivation_hook(__FILE__, 'my_deactivation');

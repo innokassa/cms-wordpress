@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Innokassa ===
 Contributors: Kripak Igor https://github.com/kripak-igor
 Tags: облачная касса, фискализация, электронный чек
 Requires PHP: 5.3 или выше 
